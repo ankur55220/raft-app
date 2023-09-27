@@ -1,4 +1,4 @@
-import React,{useEffect,useRef,useMemo} from 'react'
+import React,{useEffect,useMemo} from 'react'
 import PhotoCircle from '../PhotoCircle/PhotoCircle'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';

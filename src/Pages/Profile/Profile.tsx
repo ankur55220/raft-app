@@ -69,7 +69,7 @@ function Profile() {
   const [user, setUser] = React.useState<any>(undefined);
   const [present, setPresent] = React.useState<boolean>(false);
   const [posts, setPosts] = React.useState<Array<object> | null>(null);
-  const [postLoading, setPostLoading] = React.useState<boolean>(false);
+  
   const [suggestions, setSuggestions] = useState<MentionData[]>([]);
   const [backup,setBackup]=useState<MentionData[]>([])
   const [str,setStr]=useState<string>("")
