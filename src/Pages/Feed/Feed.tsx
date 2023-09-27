@@ -11,7 +11,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { doc,getDoc,collection,query,where, documentId,getDocs } from 'firebase/firestore'
 import { db } from '../../firebaseConfig'
-
+import "./feed.css"
 function Feed() {
 
     const [user,setUser]=useState<any>()
@@ -183,6 +183,7 @@ function Feed() {
         value={age}
         label="Age"
         onChange={handleChange}
+        
       >
         {
             follows?.length==0?<MenuItem value={""}>Not Following anybody yet</MenuItem>:
@@ -204,11 +205,13 @@ function Feed() {
             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
       <InputLabel id="demo-select-small-label">Meet other cool people</InputLabel>
       <Select
+        
         labelId="demo-select-small-label"
         id="demo-select-small"
         value={age}
         label="Age"
         onChange={handleChange}
+        
       >
         {
             others?.length==0?<MenuItem value={""}>No data</MenuItem>:

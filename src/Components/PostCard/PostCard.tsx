@@ -289,7 +289,7 @@ function PostCard(props:isImage) {
     return { plugins, MentionSuggestions };
   }, []);
   return (
-    <div className='w-[90%] mx-auto shadow-lg p-4 mb-3'>
+    <div className='w-[90%]  mx-auto shadow-lg p-4 mb-3'>
 
         <div className='w-[100%] flex justify-start items-center cursor-pointer ' onClick={()=>{navigate(`/profile/${props.addedBy}`)}}>
             <PhotoCircle url={props.photoUrl} width='w-[25px]' height='h-[25px]' type="card"/>
@@ -301,7 +301,7 @@ function PostCard(props:isImage) {
             {
                 props.imagePresent?
                 <>
-                <div className='w-[100%] h-auto'>
+                <div className='w-[100%] '>
 
                     <img className='w-[100%] h-[100%] object-cover' src={props.imgUrl} alt="" />
 

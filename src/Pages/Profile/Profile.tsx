@@ -25,6 +25,7 @@ import CustomInput from "../../Components/customInput/CustomInput";
 import { v4 as uuidv4 } from "uuid";
 import { useParams } from "react-router-dom";
 import 'whatwg-fetch'
+import "./editor.css"
 import {
   doc,
   collection,
@@ -522,6 +523,8 @@ function Profile() {
                   plugins={plugins}
                   ref={ref}
                 />
+
+              
                 <MentionSuggestions
                   open={open}
                   onOpenChange={onOpenChange}
@@ -531,6 +534,7 @@ function Profile() {
                     // get the mention object selected
                   }}
                 />
+                
 
                 {/* <textarea onChange={(e)=>{setPost(e.target.value)}} value={post} className='border-2 border-gray-500 w-[100%] p-2 overflow-auto ' name="textArea" id="" placeholder='Type your post here'  rows={10}></textarea> */}
           </div>
@@ -586,7 +590,7 @@ function Profile() {
             <button className='mt-2 px-[20px] py-0 rounded-3xl bg-gradient-to-r from-pink-500 to-rose-500 text-white'>POST</button>
 
             </div> */}
-
+      <div >
           {!posts ? (
             <CircularProgress />
           ) : posts.length == 0 ? (
@@ -611,6 +615,7 @@ function Profile() {
               );
             })
           )}
+        </div>
           {/* <div>
         <PostCard single={false} imagePresent={true} imgUrl='https://images.unsplash.com/photo-1692885228334-e3cdcb9cfad7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80'/>
     </div>

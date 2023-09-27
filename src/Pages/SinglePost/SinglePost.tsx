@@ -87,6 +87,7 @@ setLoading(true)
         setMsg("commment posted")
         getAllComments()
         setLoading(false)
+        setComment("")
 
       })
       .catch((err)=>{
