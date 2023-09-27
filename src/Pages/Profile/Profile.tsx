@@ -24,6 +24,7 @@ import { useTheme } from "@mui/material/styles";
 import CustomInput from "../../Components/customInput/CustomInput";
 import { v4 as uuidv4 } from "uuid";
 import { useParams } from "react-router-dom";
+import ClearIcon from '@mui/icons-material/Clear';
 import 'whatwg-fetch'
 import "./editor.css"
 import {
@@ -636,8 +637,8 @@ function Profile() {
           aria-labelledby="responsive-dialog-title"
           fullWidth={true}
         >
-          <DialogTitle id="responsive-dialog-title">
-            {"Edit Profile"}
+          <DialogTitle id="responsive-dialog-title" sx={{display:"flex",justifyContent:"space-between",alignItems:"center",cursor:"pointer"}}>
+            {"Edit Profile"} <ClearIcon onClick={handleClose}/>
           </DialogTitle>
           <DialogContent>
             <DialogContentText>
