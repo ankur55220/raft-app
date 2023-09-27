@@ -3,17 +3,15 @@ import PhotoCircle from '../PhotoCircle/PhotoCircle'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { db } from '../../firebaseConfig';
-import { doc, setDoc,getDoc,updateDoc,collection,addDoc,arrayRemove,increment,arrayUnion } from "firebase/firestore"; 
+import { doc,getDoc,updateDoc,arrayRemove,increment,arrayUnion } from "firebase/firestore"; 
 import UseFirebase from '../../context/Context';
 import { CircularProgress } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import Editor from "@draft-js-plugins/editor";
 import { EditorState,convertFromRaw } from 'draft-js';
-import { MentionData } from '@draft-js-plugins/mention';
+
 import '@draft-js-plugins/mention/lib/plugin.css';
-import createMentionPlugin, {
-  defaultSuggestionsFilter,
-} from "@draft-js-plugins/mention"
+import createMentionPlugin from "@draft-js-plugins/mention"
 
 
 type isImage={
@@ -37,7 +35,7 @@ function PostCard(props:isImage) {
   const [dislikeState,setDisLikes]=React.useState<boolean | null>(null)
   const [likeCount,setLikeCount]=React.useState(props.likes)
   const [dislikeCount,setDisLikeCount]=React.useState(props.likes)
-  const [info,setInfo]=React.useState<any>()
+  
   const [loading,setLoading]=React.useState(false)
   console.log(props.bio,"ooooooooooopppppppp")
   const [editorState,setEditorState]=React.useState<any>()
@@ -188,23 +186,7 @@ function PostCard(props:isImage) {
 
   }
 
-  async function getPicName(){
-
-    const userRef=doc(db,"users",props.addedBy)
-
-    const snap= await getDoc(userRef)
-if(snap.exists()){
-
-  const result={
-    pic:snap.data().imgurl,
-    name:snap.data().namw
-  }
-
-  setInfo(result)
-}
-
-
-  }
+  
 
 
   const addDislike=async()=>{
@@ -276,11 +258,11 @@ if(snap.exists()){
 
   }
 
-  const ref = useRef<Editor>(null)
+  
   const navigate=useNavigate()
 
 
-  const { MentionSuggestions, plugins } = useMemo(() => {
+  const { plugins } = useMemo(() => {
     const mentionPlugin = createMentionPlugin({
       mentionComponent(mentionProps) {
 

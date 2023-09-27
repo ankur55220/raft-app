@@ -3,7 +3,7 @@ import PhotoCircle from '../../Components/PhotoCircle/PhotoCircle'
 import PostCard from '../../Components/PostCard/PostCard'
 import UseFirebase from '../../context/Context'
 import { CircularProgress } from '@mui/material'
-import { useCallback } from 'react'
+
 import { useNavigate } from 'react-router-dom'
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -11,16 +11,6 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { doc,getDoc,collection,query,where, documentId,getDocs } from 'firebase/firestore'
 import { db } from '../../firebaseConfig'
-
-type proType={
-    imgurl:string,
-    name:string,
-    liked:Array<string>,
-    bio:string,
-    followers:Array<string>,
-    followee:Array<string>
-
-}
 
 function Feed() {
 
@@ -250,7 +240,7 @@ function Feed() {
          {
             postLoading?<CircularProgress size="2rem"/>:
             followedPost? followedPost.length==0?<h1>no post to show</h1>:
-            followedPost.map((item:any,i)=>{
+            followedPost.map((item:any)=>{
 
 
                 return (<>

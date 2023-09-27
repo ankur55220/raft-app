@@ -1,4 +1,4 @@
-import React from 'react'
+
 import PhotoCircle from '../PhotoCircle/PhotoCircle'
 import { useNavigate } from 'react-router-dom'
 

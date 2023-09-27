@@ -5,9 +5,9 @@ import Feed from './Pages/Feed/Feed'
 import Navbar from './Components/Navbar/Navbar'
 import Profile from './Pages/Profile/Profile'
 import SinglePost from './Pages/SinglePost/SinglePost'
-import UseFirebase from './context/Context'
-import { useNavigate,Navigate } from 'react-router-dom'
-import { Children } from 'react'
+
+import { Navigate } from 'react-router-dom'
+
 
 type propsType={
   children:React.ReactNode | null

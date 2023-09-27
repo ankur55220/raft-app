@@ -1,6 +1,6 @@
 import React, {
   useEffect,
-  ReactElement,
+  
   useCallback,
   useMemo,
   useRef,
@@ -13,14 +13,14 @@ import UseFirebase from "../../context/Context";
 import ProgressBar from "../../Components/progressBar/ProgressBar";
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
-import Button from "@mui/material/Button";
+
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { ThemeProvider, useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 import CustomInput from "../../Components/customInput/CustomInput";
 import { v4 as uuidv4 } from "uuid";
 import { useParams } from "react-router-dom";
@@ -43,22 +43,19 @@ import { MentionData } from '@draft-js-plugins/mention';
 import 'whatwg-fetch'
 import Editor from "@draft-js-plugins/editor";
 import '@draft-js-plugins/mention/lib/plugin.css';
-import createMentionPlugin, {
-  defaultSuggestionsFilter,
-} from "@draft-js-plugins/mention";
+import createMentionPlugin from "@draft-js-plugins/mention";
 
 import { useNavigate } from "react-router-dom";
 // import "./editor.css";
 import { db } from "../../firebaseConfig";
-import {EditorState,convertFromHTML,convertFromRaw,convertToRaw} from "draft-js"
-import { fromJS } from "immutable";
+import {EditorState,convertToRaw} from "draft-js"
+
 function Profile() {
 
-  const [mentions,setMention]=React.useState<MentionData[]>([{name:"test",title:"king",pic:"not available"}])
   const data = UseFirebase();
   const navigate=useNavigate()
   const [value, setValue] = React.useState<File | null>();
-  const [post, setPost] = React.useState<string>();
+  
   const [msg, setMsg] = React.useState<string>();
   const [err, setErr] = React.useState<boolean>(false);
   const [profile, setProfile] = React.useState<File | null>();
@@ -136,12 +133,9 @@ function Profile() {
    console.log(querySnapShot.size,"77mmnn")
     const userInfo:MentionData[]=[]
 
-    const Result:MentionData[]=[]
+    
 
-    type userQuery={
-      name:string,
-      url:string
-    }
+    
 
     querySnapShot.forEach((doc)=>{
 
@@ -207,10 +201,7 @@ function Profile() {
 
       data.forEach((dat) => {
 
-        let info:any={
-          ...dat.data(),
-             
-        }
+        
 
         result.push(dat.data());
       });
@@ -310,7 +301,7 @@ function Profile() {
       .then(() => {
         setErr(false);
         setMsg("successfully posted");
-        setPost("");
+        
         setLoading(false);
         data.setPrgress(0);
         getAllUserPosts();
@@ -345,7 +336,7 @@ function Profile() {
 
       
        data?.updateOne(editData, "users", params.id)
-        .then((res) => {
+        .then(() => {
           setErr(false);
           setMsg("edit successfull");
           setLoading(false);
@@ -400,24 +391,6 @@ function Profile() {
     }
   }
 
-  async function multiFile(obj: object) {
-    const usersRef = collection(db, "posts");
-
-    const q = query(usersRef, where("addedBy", "==", params.id));
-
-    const data = await getDocs(q);
-
-    // for await(const doc2 of data){
-    //     const taskDocRef = doc(db, collection, id)
-
-    // }
-
-    data.forEach(async (doc2) => {
-      const taskDocRef = doc(db, "posts", doc2.id);
-
-      await updateDoc(taskDocRef, obj);
-    });
-  }
 
   // functions from editor draft-js
 

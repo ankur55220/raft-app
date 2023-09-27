@@ -2,7 +2,7 @@ import { createContext,useCallback,useContext, useEffect } from 'react'
 import { useState } from 'react'
 import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,onAuthStateChanged } from 'firebase/auth'
 import {app,db} from '../firebaseConfig.ts'
-import { doc,query, setDoc,getDoc,getDocs,updateDoc,collection,addDoc, where } from "firebase/firestore"; 
+import { doc,query, setDoc,getDoc,getDocs,updateDoc,collection, where } from "firebase/firestore"; 
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 
@@ -13,7 +13,7 @@ const auth=getAuth(app)
 type propsType={
     children:JSX.Element
 }
-const userId: string =   null as any
+
 
 // let user=window.localStorage.getItem("user") || null
 

@@ -4,7 +4,7 @@ import CustomInput from '../../Components/customInput/CustomInput'
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useNavigate } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+
 
 function SignUp() {
 
@@ -54,7 +54,7 @@ function SignUp() {
             
                console.log(user.user.uid)
                values.addData("users",user.user.uid,userData)
-               .then((data:any)=>{
+               .then(()=>{
 
                 
                 setTimeout(()=>{

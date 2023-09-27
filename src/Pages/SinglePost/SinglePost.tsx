@@ -1,10 +1,10 @@
-import React,{useState,useEffect} from 'react'
+import {useState,useEffect} from 'react'
 import PostCard from '../../Components/PostCard/PostCard'
 import CommentPost from '../../Components/CommentPost/CommentPost'
 import { useParams } from 'react-router-dom'
 import UseFirebase from '../../context/Context'
 
-import { v4 as uuidv4 } from "uuid";
+
 import { CircularProgress } from '@mui/material'
 import { v4 as uuid4 } from 'uuid'
 import { Alert } from '@mui/material'
@@ -12,11 +12,7 @@ import { where,getDocs,collection,doc,query,Timestamp,orderBy,getDoc } from 'fir
 import { db } from '../../firebaseConfig'
 import { useNavigate } from 'react-router-dom'
 
-type objType={
-  body:string,
-  name:string,
-  img:string
-}
+
 
 interface LooseObject {
   [key: string]: any
@@ -97,6 +93,7 @@ setLoading(true)
         setErr(true)
         setMsg("something went wrong")
         setLoading(false)
+        console.log(err)
 
       })
 
