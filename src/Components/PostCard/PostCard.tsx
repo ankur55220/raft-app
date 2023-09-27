@@ -301,7 +301,7 @@ function PostCard(props:isImage) {
             {
                 props.imagePresent?
                 <>
-                <div className='w-[100%] '>
+                <div className='w-[100%] min-h-[30%] '>
 
                     <img className='w-[100%] h-[100%] object-cover' src={props.imgUrl} alt="" />
 

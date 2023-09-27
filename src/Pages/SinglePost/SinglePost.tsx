@@ -159,7 +159,7 @@ setTotalComments(res)
 
 
   return (
-    <div className='w-[80%] h-[auto] mx-auto py-4'>
+    <div className='w-[90%] h-[auto] mx-auto py-4 '>
       {
         !post?<CircularProgress/>:<>
         
